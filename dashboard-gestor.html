@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FITMIND AI — Painel do Gestor</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+</head>
+<body>
+
+  <header class="mobile-header" role="banner">
+    <span class="mobile-logo">FITMIND AI</span>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="app-layout">
+
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Menu do gestor">
+      <div class="sidebar-logo">
+        <a href="index.html" style="text-decoration:none;">
+          <span class="logo-text">FITMIND AI</span>
+          <span class="logo-sub">Portal do Gestor</span>
+        </a>
+      </div>
+      <div class="sidebar-profile">
+        <div class="profile-avatar" aria-hidden="true">PT</div>
+        <div class="profile-info">
+          <p class="profile-name">Personal Trainer</p>
+          <p class="profile-role">Administrador</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <p class="nav-section-label">Principal</p>
+        <a href="dashboard-gestor.html" class="nav-item active">
+          <span class="nav-icon">📊</span> Painel Geral
+        </a>
+        <!-- Cada link agora aponta para sua página exclusiva -->
+        <a href="alunos.html" class="nav-item">
+          <span class="nav-icon">👥</span> Meus Alunos
+        </a>
+        <a href="anamneses.html" class="nav-item">
+          <span class="nav-icon">📋</span> Anamneses
+        </a>
+        <a href="protocolos.html" class="nav-item">
+          <span class="nav-icon">🏋️</span> Protocolos
+        </a>
+        <p class="nav-section-label">Financeiro</p>
+        <a href="faturamento.html" class="nav-item">
+          <span class="nav-icon">💰</span> Faturamento
+        </a>
+        <a href="assinaturas.html" class="nav-item">
+          <span class="nav-icon">🔄</span> Assinaturas
+        </a>
+        <p class="nav-section-label">Sistema</p>
+        <a href="sobre.html" class="nav-item">
+          <span class="nav-icon">ℹ️</span> Sobre o Projeto
+        </a>
+      </nav>
+      <footer class="sidebar-footer">
+        <a href="index.html" class="btn-logout">← Sair do Sistema</a>
+      </footer>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1 class="page-title">Painel do Gestor</h1>
+        <p class="page-subtitle">Visão geral dos seus alunos, receita e protocolos</p>
+      </header>
+
+      <!-- KPIs -->
+      <section aria-label="Métricas gerais">
+        <div class="metrics-grid">
+          <article class="metric-card" style="animation-delay:0.05s">
+            <p class="metric-label">Total de Alunos</p>
+            <p class="metric-value">47</p>
+            <p class="metric-desc">+3 novos este mês</p>
+            <span class="metric-icon">👥</span>
+          </article>
+          <article class="metric-card" style="animation-delay:0.1s">
+            <p class="metric-label">Faturamento Mensal</p>
+            <p class="metric-value">R$6.8k</p>
+            <p class="metric-desc">↑ 12% vs mês anterior</p>
+            <span class="metric-icon">💰</span>
+          </article>
+          <article class="metric-card" style="animation-delay:0.15s">
+            <p class="metric-label">Treinos Criados</p>
+            <p class="metric-value">134</p>
+            <p class="metric-desc">38 gerados com IA</p>
+            <span class="metric-icon">🏋️</span>
+          </article>
+          <article class="metric-card" style="animation-delay:0.2s">
+            <p class="metric-label">Anamneses Pendentes</p>
+            <p class="metric-value" style="color:var(--warning);">5</p>
+            <p class="metric-desc">Aguardando protocolo</p>
+            <span class="metric-icon">📋</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- Ações rápidas -->
+      <section class="card" style="margin-bottom:28px;" aria-label="Acesso rápido">
+        <h2 style="font-family:var(--font-ui);font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:18px;">⚡ Acesso Rápido</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;">
+          <a href="alunos.html" class="btn btn-outline" style="justify-content:center;">👥 Ver Alunos</a>
+          <a href="anamneses.html" class="btn btn-outline" style="justify-content:center;">📋 Ver Anamneses</a>
+          <a href="protocolos.html" class="btn btn-outline" style="justify-content:center;">🏋️ Protocolos</a>
+          <a href="faturamento.html" class="btn btn-outline" style="justify-content:center;">💰 Faturamento</a>
+          <a href="assinaturas.html" class="btn btn-outline" style="justify-content:center;">🔄 Assinaturas</a>
+        </div>
+      </section>
+
+      <!-- Anamneses recentes -->
+      <section class="card" aria-label="Anamneses recentes">
+        <header style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+          <h2 style="font-family:var(--font-ui);font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">📋 Anamneses Recentes</h2>
+          <a href="anamneses.html" class="btn btn-outline" style="padding:6px 14px;font-size:0.75rem;">Ver todas →</a>
+        </header>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Aluno</th><th>Objetivo</th><th>Status</th><th>Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Marcos Oliveira</td><td>Hipertrofia</td>
+                <td><span class="badge badge-warning">Pendente</span></td>
+                <td><a href="anamneses.html" class="btn btn-primary" style="padding:6px 12px;font-size:0.75rem;">Ver Anamnese</a></td>
+              </tr>
+              <tr>
+                <td>Ana Silva</td><td>Emagrecimento</td>
+                <td><span class="badge badge-warning">Pendente</span></td>
+                <td><a href="anamneses.html" class="btn btn-primary" style="padding:6px 12px;font-size:0.75rem;">Ver Anamnese</a></td>
+              </tr>
+              <tr>
+                <td>Juliana Lima</td><td>Hipertrofia</td>
+                <td><span class="badge badge-success">Concluído</span></td>
+                <td><a href="anamneses.html" class="btn btn-outline" style="padding:6px 12px;font-size:0.75rem;">Ver Protocolo</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="modalProtocolo" style="display:none;"></div>
+  <script src="script.js"></script>
+</body>
+</html>

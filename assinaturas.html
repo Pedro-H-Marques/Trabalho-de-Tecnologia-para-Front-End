@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FITMIND AI — Assinaturas</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+</head>
+<body>
+
+  <header class="mobile-header" role="banner">
+    <span class="mobile-logo">FITMIND AI</span>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar" role="navigation">
+      <div class="sidebar-logo">
+        <a href="index.html" style="text-decoration:none;">
+          <span class="logo-text">FITMIND AI</span>
+          <span class="logo-sub">Portal do Gestor</span>
+        </a>
+      </div>
+      <div class="sidebar-profile">
+        <div class="profile-avatar">PT</div>
+        <div class="profile-info">
+          <p class="profile-name">Personal Trainer</p>
+          <p class="profile-role">Administrador</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <p class="nav-section-label">Principal</p>
+        <a href="dashboard-gestor.html" class="nav-item"><span class="nav-icon">📊</span> Painel Geral</a>
+        <a href="alunos.html" class="nav-item"><span class="nav-icon">👥</span> Meus Alunos</a>
+        <a href="anamneses.html" class="nav-item"><span class="nav-icon">📋</span> Anamneses</a>
+        <a href="protocolos.html" class="nav-item"><span class="nav-icon">🏋️</span> Protocolos</a>
+        <p class="nav-section-label">Financeiro</p>
+        <a href="faturamento.html" class="nav-item"><span class="nav-icon">💰</span> Faturamento</a>
+        <a href="assinaturas.html" class="nav-item active"><span class="nav-icon">🔄</span> Assinaturas</a>
+        <p class="nav-section-label">Sistema</p>
+        <a href="sobre.html" class="nav-item"><span class="nav-icon">ℹ️</span> Sobre</a>
+      </nav>
+      <footer class="sidebar-footer">
+        <a href="index.html" class="btn-logout">← Sair</a>
+      </footer>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1 class="page-title">Assinaturas</h1>
+        <p class="page-subtitle">Gerencie os planos e assinaturas dos seus alunos</p>
+      </header>
+
+      <!-- KPIs -->
+      <div class="metrics-grid" style="margin-bottom:28px;">
+        <article class="metric-card">
+          <p class="metric-label">Plano Premium</p>
+          <p class="metric-value">12</p>
+          <p class="metric-desc">R$350/mês · R$4.200 total</p>
+          <span class="metric-icon">🏆</span>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Plano Intermediário</p>
+          <p class="metric-value">9</p>
+          <p class="metric-desc">R$220/mês · R$1.980 total</p>
+          <span class="metric-icon">⭐</span>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Plano Básico</p>
+          <p class="metric-value">5</p>
+          <p class="metric-desc">R$120/mês · R$600 total</p>
+          <span class="metric-icon">📦</span>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Renovações este mês</p>
+          <p class="metric-value">21</p>
+          <p class="metric-desc">3 vencem em 7 dias</p>
+          <span class="metric-icon">🔄</span>
+        </article>
+      </div>
+
+      <!-- Tabs -->
+      <section class="card">
+        <div class="tabs-container">
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="tab-todas-ass">📋 Todas as Assinaturas</button>
+            <button class="tab-btn" data-tab="tab-vencendo">⏰ Vencendo em Breve</button>
+            <button class="tab-btn" data-tab="tab-canceladas">❌ Canceladas</button>
+            <button class="tab-btn" data-tab="tab-nova-ass">➕ Nova Assinatura</button>
+          </div>
+
+          <!-- TAB: Todas -->
+          <div class="tab-pane active" id="tab-todas-ass">
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr><th>Aluno</th><th>Plano</th><th>Valor</th><th>Início</th><th>Renovação</th><th>Status</th><th>Ação</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><div class="profile-avatar" style="width:28px;height:28px;font-size:0.65rem;">MO</div><span>Marcos Oliveira</span></div></td>
+                    <td><span class="badge badge-success">Premium</span></td>
+                    <td style="color:var(--accent-neon);font-weight:600;">R$350</td>
+                    <td>01/01/2025</td><td>01/07/2025</td>
+                    <td><span class="badge badge-success">Ativo</span></td>
+                    <td>
+                      <select class="form-control" style="padding:4px 8px;font-size:0.75rem;width:auto;" onchange="mostrarToast('Plano atualizado para '+this.value)">
+                        <option>Premium</option><option>Intermediário</option><option>Básico</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><div class="profile-avatar" style="width:28px;height:28px;font-size:0.65rem;">AS</div><span>Ana Silva</span></div></td>
+                    <td><span class="badge badge-info">Intermediário</span></td>
+                    <td style="color:var(--accent-neon);font-weight:600;">R$220</td>
+                    <td>10/02/2025</td><td>10/07/2025</td>
+                    <td><span class="badge badge-success">Ativo</span></td>
+                    <td>
+                      <select class="form-control" style="padding:4px 8px;font-size:0.75rem;width:auto;" onchange="mostrarToast('Plano atualizado para '+this.value)">
+                        <option>Intermediário</option><option>Premium</option><option>Básico</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><div class="profile-avatar" style="width:28px;height:28px;font-size:0.65rem;">CF</div><span>Carlos Ferreira</span></div></td>
+                    <td><span class="badge badge-success">Premium</span></td>
+                    <td style="color:var(--danger);font-weight:600;">R$350</td>
+                    <td>01/03/2025</td><td>01/07/2025</td>
+                    <td><span class="badge badge-danger">Inadimplente</span></td>
+                    <td><button class="btn btn-danger" style="padding:5px 10px;font-size:0.72rem;" onclick="mostrarToast('Cobrança enviada!')">Cobrar</button></td>
+                  </tr>
+                  <tr>
+                    <td><div style="display:flex;align-items:center;gap:8px;"><div class="profile-avatar" style="width:28px;height:28px;font-size:0.65rem;">JL</div><span>Juliana Lima</span></div></td>
+                    <td><span class="badge badge-warning">Básico</span></td>
+                    <td style="color:var(--accent-neon);font-weight:600;">R$120</td>
+                    <td>15/04/2025</td><td>15/06/2025</td>
+                    <td><span class="badge badge-warning">Vence em 12 dias</span></td>
+                    <td>
+                      <select class="form-control" style="padding:4px 8px;font-size:0.75rem;width:auto;" onchange="mostrarToast('Plano atualizado para '+this.value)">
+                        <option>Básico</option><option>Intermediário</option><option>Premium</option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB: Vencendo -->
+          <div class="tab-pane" id="tab-vencendo">
+            <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:16px;">Assinaturas que vencem nos próximos 7 dias</p>
+            <div style="display:grid;gap:12px;">
+              <div class="card" style="padding:16px;border-color:var(--warning);">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <div class="profile-avatar" style="width:34px;height:34px;font-size:0.75rem;">RP</div>
+                    <div><p style="font-weight:600;">Ricardo Pinto</p><p style="font-size:0.75rem;color:var(--text-muted);">Premium · R$350/mês</p></div>
+                  </div>
+                  <div style="text-align:right;">
+                    <p style="font-family:var(--font-ui);font-size:0.7rem;color:var(--warning);letter-spacing:0.1em;">VENCE EM 3 DIAS</p>
+                    <p style="font-size:0.8rem;color:var(--text-secondary);">05/06/2025</p>
+                  </div>
+                </div>
+                <div style="margin-top:12px;display:flex;gap:8px;">
+                  <button class="btn btn-primary" style="padding:7px 14px;font-size:0.78rem;" onclick="mostrarToast('Lembrete enviado para Ricardo!')">📩 Enviar Lembrete</button>
+                  <button class="btn btn-outline" style="padding:7px 14px;font-size:0.78rem;" onclick="mostrarToast('Renovação antecipada confirmada!')">🔄 Renovar Agora</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Canceladas -->
+          <div class="tab-pane" id="tab-canceladas">
+            <div style="text-align:center;padding:40px 0;color:var(--text-muted);">
+              <p style="font-size:2.5rem;margin-bottom:12px;">✅</p>
+              <p style="font-family:var(--font-ui);font-size:0.9rem;">Nenhuma assinatura cancelada este mês.</p>
+              <p style="font-size:0.8rem;margin-top:6px;">Taxa de retenção: <strong style="color:var(--accent-neon);">100%</strong></p>
+            </div>
+          </div>
+
+          <!-- TAB: Nova Assinatura -->
+          <div class="tab-pane" id="tab-nova-ass">
+            <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:20px;">Confirme uma nova assinatura presencial</p>
+            <div style="max-width:480px;">
+              <div class="form-group">
+                <label class="form-label" for="nomeNovoAluno">Nome do Novo Aluno</label>
+                <input type="text" id="nomeNovoAluno" class="form-control" placeholder="Nome completo" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="emailNovoAluno">E-mail</label>
+                <input type="email" id="emailNovoAluno" class="form-control" placeholder="email@exemplo.com" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="planoNovo">Plano Escolhido</label>
+                <select id="planoNovo" class="form-control">
+                  <option value="basico">Básico — R$120/mês</option>
+                  <option value="intermediario">Intermediário — R$220/mês</option>
+                  <option value="premium">Premium — R$350/mês</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="dataInicio">Data de Início</label>
+                <input type="date" id="dataInicio" class="form-control" />
+              </div>
+              <button class="btn btn-primary btn-lg" onclick="confirmarNovaAss()">✅ Confirmar Assinatura</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modalProtocolo" style="display:none;"></div>
+  <script src="script.js"></script>
+  <script>
+    function confirmarNovaAss() {
+      const nome  = document.getElementById('nomeNovoAluno')?.value.trim();
+      const email = document.getElementById('emailNovoAluno')?.value.trim();
+      const plano = document.getElementById('planoNovo')?.value;
+      if (!nome || !email) { mostrarToast('⚠️ Preencha nome e e-mail!'); return; }
+      mostrarToast(`✅ Assinatura de ${nome} confirmada no plano ${plano}!`);
+    }
+  </script>
+</body>
+</html>

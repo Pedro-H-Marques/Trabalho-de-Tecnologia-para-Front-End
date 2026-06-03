@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FITMIND AI — Painel do Aluno: Anamnese, Treinos e Chatbot." />
+  <title>FITMIND AI — Painel do Aluno</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+    DASHBOARD DO ALUNO
+    Seções: Anamnese, Treinos Atuais, Dieta e Chatbot IA
+    ============================================================ -->
+
+  <!-- Header mobile -->
+  <header class="mobile-header" role="banner">
+    <span class="mobile-logo">FITMIND AI</span>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Overlay mobile -->
+  <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+  <div class="app-layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Menu principal do aluno">
+
+      <div class="sidebar-logo">
+        <a href="index.html" style="text-decoration:none;">
+          <span class="logo-text">FITMIND AI</span>
+          <span class="logo-sub">Portal do Aluno</span>
+        </a>
+      </div>
+
+      <!-- Perfil do aluno -->
+      <div class="sidebar-profile">
+        <div class="profile-avatar" aria-hidden="true">AL</div>
+        <div class="profile-info">
+          <p class="profile-name">Aluno Demo</p>
+          <p class="profile-role">Plano Premium</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <p class="nav-section-label">Meu Painel</p>
+
+        <a href="#section-anamnese" class="nav-item active" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">📝</span>
+          Minha Anamnese
+        </a>
+
+        <a href="#section-treinos" class="nav-item">
+          <span class="nav-icon" aria-hidden="true">🏋️</span>
+          Meus Treinos
+        </a>
+
+        <a href="#section-dieta" class="nav-item">
+          <span class="nav-icon" aria-hidden="true">🥗</span>
+          Minha Dieta
+        </a>
+
+        <a href="#section-chat" class="nav-item">
+          <span class="nav-icon" aria-hidden="true">🤖</span>
+          Chat com IA
+        </a>
+
+        <p class="nav-section-label">Histórico</p>
+
+        <a href="#section-historico" class="nav-item">
+          <span class="nav-icon" aria-hidden="true">📅</span>
+          Histórico de Treinos
+        </a>
+
+        <p class="nav-section-label">Sistema</p>
+
+        <a href="sobre.html" class="nav-item">
+          <span class="nav-icon" aria-hidden="true">ℹ️</span>
+          Sobre o Projeto
+        </a>
+      </nav>
+
+      <footer class="sidebar-footer">
+        <a href="index.html" class="btn-logout" aria-label="Sair do sistema">
+          <span aria-hidden="true">←</span> Sair do Sistema
+        </a>
+      </footer>
+
+    </aside>
+
+    <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+    <main class="main-content" id="mainContent" role="main" aria-label="Painel do aluno">
+
+      <header class="page-header">
+        <h1 class="page-title">Painel do Aluno</h1>
+        <p class="page-subtitle">Preencha sua anamnese, acompanhe treinos e converse com nossa IA</p>
+      </header>
+
+      <!-- ============================================================
+        SEÇÃO 1: FORMULÁRIO DE ANAMNESE HIPER-DETALHADO
+        Campos: dados pessoais, medidas, TMB, rotina e histórico de saúde
+        ============================================================ -->
+      <section id="section-anamnese" class="card" style="margin-bottom:28px;" aria-labelledby="titulo-anamnese">
+
+        <header style="margin-bottom:24px;">
+          <h2 id="titulo-anamnese" style="font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">
+            📝 Formulário de Anamnese
+          </h2>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:4px;">
+            Preencha todos os campos. Sua TMB e IMC serão calculados automaticamente.
+          </p>
+        </header>
+
+        <!-- O atributo novalidate deixa a validação por conta do JS para personalização -->
+        <form id="formAnamnese" novalidate>
+
+          <!-- ---- Dados Pessoais ---- -->
+          <p class="form-section-title">Dados Pessoais</p>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="nomeAluno">Nome Completo</label>
+              <input type="text" id="nomeAluno" class="form-control" placeholder="Seu nome completo" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="idade">Idade</label>
+              <input type="number" id="idade" class="form-control" placeholder="Ex: 25" min="10" max="100" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="sexo">Sexo Biológico</label>
+              <select id="sexo" class="form-control" required>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ---- Medidas Corporais ---- -->
+          <p class="form-section-title">Medidas Corporais</p>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="peso">Peso (kg)</label>
+              <input type="number" id="peso" class="form-control" placeholder="Ex: 75.5" step="0.1" min="30" max="300" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="altura">Altura (cm)</label>
+              <input type="number" id="altura" class="form-control" placeholder="Ex: 175" min="100" max="250" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="percentualGordura">% Gordura Corporal</label>
+              <input type="number" id="percentualGordura" class="form-control" placeholder="Ex: 18" step="0.1" min="3" max="60" />
+              <p class="form-hint">Opcional — informe se tiver avaliação recente</p>
+            </div>
+          </div>
+
+          <!-- Medidas de circunferência -->
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="medCintura">Circunferência Cintura (cm)</label>
+              <input type="number" id="medCintura" class="form-control" placeholder="Ex: 82" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="medQuadril">Circunferência Quadril (cm)</label>
+              <input type="number" id="medQuadril" class="form-control" placeholder="Ex: 98" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="medBraco">Circunferência Braço (cm)</label>
+              <input type="number" id="medBraco" class="form-control" placeholder="Ex: 34" />
+            </div>
+          </div>
+
+          <!-- ---- Cálculo Automático de IMC e TMB ---- -->
+          <p class="form-section-title">Cálculo Automático — IMC & TMB</p>
+
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:14px;">
+            Os valores abaixo são calculados automaticamente em tempo real conforme você preenche peso, altura, idade e sexo.
+          </p>
+
+          <div class="form-grid-2" style="margin-bottom:20px;">
+
+            <!-- Resultado do IMC -->
+            <div>
+              <p class="form-label">Índice de Massa Corporal (IMC)</p>
+              <!-- O JS atualiza o conteúdo deste elemento em tempo real -->
+              <div class="calc-result">
+                <p class="result-label">IMC calculado</p>
+                <p class="result-value" id="resultadoIMC">—</p>
+              </div>
+            </div>
+
+            <!-- Resultado da TMB -->
+            <div>
+              <p class="form-label">Taxa Metabólica Basal (TMB) — Mifflin-St Jeor</p>
+              <div class="calc-result">
+                <p class="result-label">TMB (kcal em repouso)</p>
+                <p class="result-value" id="resultadoTMB">—</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Nível de atividade para cálculo do TDEE -->
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="nivelAtividade">Nível de Atividade Física</label>
+              <select id="nivelAtividade" class="form-control">
+                <option value="1.2">Sedentário (sem exercício)</option>
+                <option value="1.375" selected>Levemente ativo (1–3x/semana)</option>
+                <option value="1.55">Moderadamente ativo (3–5x/semana)</option>
+                <option value="1.725">Muito ativo (6–7x/semana)</option>
+                <option value="1.9">Extremamente ativo (2x/dia)</option>
+              </select>
+            </div>
+            <div>
+              <p class="form-label">Gasto Calórico Total Diário (TDEE)</p>
+              <div class="calc-result">
+                <p class="result-label">Calorias totais estimadas/dia</p>
+                <p class="result-value" id="resultadoTDEE">—</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ---- Objetivo e Experiência ---- -->
+          <p class="form-section-title">Objetivo e Experiência</p>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="objetivo">Objetivo Principal</label>
+              <select id="objetivo" class="form-control" required>
+                <option value="">Selecione...</option>
+                <option value="hipertrofia">Hipertrofia Muscular</option>
+                <option value="emagrecimento">Emagrecimento</option>
+                <option value="condicionamento">Condicionamento Físico</option>
+                <option value="forca">Ganho de Força</option>
+                <option value="saude">Saúde Geral</option>
+                <option value="reabilitacao">Reabilitação</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="tempoTreino">Tempo de Treino</label>
+              <select id="tempoTreino" class="form-control" required>
+                <option value="">Selecione...</option>
+                <option value="iniciante">Iniciante (menos de 6 meses)</option>
+                <option value="intermediario">Intermediário (6m – 2 anos)</option>
+                <option value="avancado">Avançado (mais de 2 anos)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="frequenciaTreino">Frequência Semanal Desejada</label>
+              <select id="frequenciaTreino" class="form-control">
+                <option value="2">2x por semana</option>
+                <option value="3" selected>3x por semana</option>
+                <option value="4">4x por semana</option>
+                <option value="5">5x por semana</option>
+                <option value="6">6x por semana</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="duracaoTreino">Duração Média por Sessão</label>
+              <select id="duracaoTreino" class="form-control">
+                <option value="30">30 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="60" selected>60 minutos</option>
+                <option value="90">90 minutos</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ---- Rotina e Preferências ---- -->
+          <p class="form-section-title">Rotina e Preferências</p>
+
+          <div class="form-group">
+            <label class="form-label" for="disponibilidade">Horário de Preferência para Treinar</label>
+            <select id="disponibilidade" class="form-control">
+              <option value="manha">Manhã (06h – 12h)</option>
+              <option value="tarde">Tarde (12h – 18h)</option>
+              <option value="noite">Noite (18h – 22h)</option>
+            </select>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="localTreino">Local de Treino</label>
+              <select id="localTreino" class="form-control">
+                <option value="academia">Academia</option>
+                <option value="casa">Em Casa</option>
+                <option value="ar-livre">Ar Livre</option>
+                <option value="misto">Misto</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="restricoes">Restrições de Equipamento</label>
+              <input type="text" id="restricoes" class="form-control" placeholder="Ex: sem barra olímpica, sem rack..." />
+            </div>
+          </div>
+
+          <!-- ---- Histórico de Saúde ---- -->
+          <p class="form-section-title">Histórico de Saúde</p>
+
+          <div class="form-group">
+            <label class="form-label" for="lesoes">Lesões ou Cirurgias Anteriores</label>
+            <textarea id="lesoes" class="form-control" rows="3"
+              placeholder="Descreva lesões, cirurgias ou dores crônicas (ex: hérnia de disco L4-L5, cirurgia no joelho em 2022...)"
+              style="resize:vertical;"
+            ></textarea>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="doencas">Doenças Crônicas</label>
+              <input type="text" id="doencas" class="form-control" placeholder="Ex: Hipertensão, Diabetes Tipo 2..." />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="medicamentos">Medicamentos em Uso</label>
+              <input type="text" id="medicamentos" class="form-control" placeholder="Ex: Metformina 500mg, Beta-bloqueador..." />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="observacoes">Observações Adicionais</label>
+            <textarea id="observacoes" class="form-control" rows="2"
+              placeholder="Qualquer informação relevante para o seu personal..."
+              style="resize:vertical;"
+            ></textarea>
+          </div>
+
+          <!-- Botão de envio -->
+          <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+            <button type="submit" class="btn btn-primary btn-lg">
+              📤 Enviar Anamnese ao Personal
+            </button>
+            <button type="reset" class="btn btn-outline" onclick="mostrarToast('Formulário limpo.','')" style="background:none;cursor:pointer;">
+              🗑 Limpar Formulário
+            </button>
+          </div>
+
+        </form>
+      </section>
+      <!-- /section anamnese -->
+
+      <!-- ============================================================
+        SEÇÃO 2: VISUALIZADOR DE TREINOS ATUAIS
+        ============================================================ -->
+      <section id="section-treinos" class="card" style="margin-bottom:28px;" aria-labelledby="titulo-treinos">
+
+        <header style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+          <div>
+            <h2 id="titulo-treinos" style="font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">
+              🏋️ Treinos Atuais
+            </h2>
+            <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:3px;">Enviado pelo seu Personal em 28/05/2025</p>
+          </div>
+          <span class="badge badge-success">Ativo</span>
+        </header>
+
+        <!-- Abas de treino (A/B/C) -->
+        <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;" role="tablist" aria-label="Seleção de protocolo de treino">
+          <button class="btn btn-primary" style="padding:8px 16px;font-size:0.8rem;" role="tab" aria-selected="true">Protocolo A</button>
+          <button class="btn btn-outline" style="padding:8px 16px;font-size:0.8rem;" role="tab" aria-selected="false">Protocolo B</button>
+          <button class="btn btn-outline" style="padding:8px 16px;font-size:0.8rem;" role="tab" aria-selected="false">Protocolo C</button>
+        </div>
+
+        <!-- Conteúdo do Protocolo A -->
+        <div class="table-wrapper" role="region" aria-label="Tabela de exercícios - Protocolo A">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Exercício</th>
+                <th scope="col">Séries × Reps</th>
+                <th scope="col">Carga</th>
+                <th scope="col">Descanso</th>
+                <th scope="col">Obs.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color:var(--text-muted);font-family:var(--font-ui);">A1</td>
+                <td><strong>Supino Reto com Barra</strong></td>
+                <td><span class="badge badge-info">4 × 10</span></td>
+                <td>70% 1RM</td>
+                <td>90s</td>
+                <td style="font-size:0.78rem;color:var(--text-muted);">Controle na descida</td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-muted);font-family:var(--font-ui);">A2</td>
+                <td><strong>Supino Inclinado c/ Halteres</strong></td>
+                <td><span class="badge badge-info">3 × 12</span></td>
+                <td>Moderada</td>
+                <td>60s</td>
+                <td style="font-size:0.78rem;color:var(--text-muted);">Foco na contração</td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-muted);font-family:var(--font-ui);">A3</td>
+                <td><strong>Crossover no Cabo</strong></td>
+                <td><span class="badge badge-info">3 × 15</span></td>
+                <td>Leve</td>
+                <td>60s</td>
+                <td style="font-size:0.78rem;color:var(--text-muted);">Amplitude máxima</td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-muted);font-family:var(--font-ui);">A4</td>
+                <td><strong>Tríceps Corda no Cabo</strong></td>
+                <td><span class="badge badge-info">3 × 15</span></td>
+                <td>Moderada</td>
+                <td>60s</td>
+                <td style="font-size:0.78rem;color:var(--text-muted);">Cotovelos fixos</td>
+              </tr>
+              <tr>
+                <td style="color:var(--text-muted);font-family:var(--font-ui);">A5</td>
+                <td><strong>Tríceps Francês</strong></td>
+                <td><span class="badge badge-info">3 × 12</span></td>
+                <td>Leve-Mod</td>
+                <td>60s</td>
+                <td style="font-size:0.78rem;color:var(--text-muted);">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+      <!-- ============================================================
+        SEÇÃO 3: DIETA ATUAL
+        ============================================================ -->
+      <section id="section-dieta" class="card" style="margin-bottom:28px;" aria-labelledby="titulo-dieta">
+
+        <header style="margin-bottom:20px;">
+          <h2 id="titulo-dieta" style="font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">
+            🥗 Dieta Atual
+          </h2>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:3px;">Protocolo nutricional enviado pelo Personal — 2.400 kcal/dia</p>
+        </header>
+
+        <!-- Grade de refeições -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;">
+
+          <!-- Cada refeição é um article (elemento de conteúdo independente) -->
+          <article style="background:var(--bg-input);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:16px;">
+            <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:8px;">☀️ Café da Manhã — 07h</p>
+            <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">
+              3 ovos mexidos • 2 fatias de pão integral • 1 banana • Café sem açúcar
+            </p>
+            <p style="font-family:var(--font-ui);font-size:0.72rem;color:var(--text-muted);margin-top:8px;">~550 kcal · 35g proteína</p>
+          </article>
+
+          <article style="background:var(--bg-input);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:16px;">
+            <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:8px;">🍎 Lanche da Manhã — 10h</p>
+            <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">
+              200g de iogurte grego • 30g de granola • 1 maçã
+            </p>
+            <p style="font-family:var(--font-ui);font-size:0.72rem;color:var(--text-muted);margin-top:8px;">~320 kcal · 20g proteína</p>
+          </article>
+
+          <article style="background:var(--bg-input);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:16px;">
+            <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:8px;">🍽 Almoço — 13h</p>
+            <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">
+              200g frango grelhado • 150g arroz integral • Salada verde • 100g feijão
+            </p>
+            <p style="font-family:var(--font-ui);font-size:0.72rem;color:var(--text-muted);margin-top:8px;">~680 kcal · 50g proteína</p>
+          </article>
+
+          <article style="background:var(--bg-input);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:16px;">
+            <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:8px;">💪 Pré-Treino — 17h</p>
+            <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">
+              1 banana • 30g de whey protein • Água com limão
+            </p>
+            <p style="font-family:var(--font-ui);font-size:0.72rem;color:var(--text-muted);margin-top:8px;">~280 kcal · 30g proteína</p>
+          </article>
+
+          <article style="background:var(--bg-input);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:16px;">
+            <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:8px;">🌙 Jantar — 20h</p>
+            <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">
+              150g salmão • Batata doce 150g • Brócolis refogado
+            </p>
+            <p style="font-family:var(--font-ui);font-size:0.72rem;color:var(--text-muted);margin-top:8px;">~570 kcal · 40g proteína</p>
+          </article>
+
+        </div>
+
+        <!-- Totais do dia -->
+        <div style="margin-top:16px;padding:14px 18px;background:rgba(57,255,20,0.05);border:1px solid var(--border-neon);border-radius:var(--radius-sm);display:flex;gap:24px;flex-wrap:wrap;">
+          <div>
+            <p style="font-family:var(--font-ui);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">Total Calórico</p>
+            <p style="font-family:var(--font-display);font-size:1.2rem;color:var(--accent-neon);font-weight:700;">2.400 kcal</p>
+          </div>
+          <div>
+            <p style="font-family:var(--font-ui);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">Proteínas</p>
+            <p style="font-family:var(--font-display);font-size:1.2rem;color:var(--info);font-weight:700;">175g</p>
+          </div>
+          <div>
+            <p style="font-family:var(--font-ui);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">Carboidratos</p>
+            <p style="font-family:var(--font-display);font-size:1.2rem;color:var(--warning);font-weight:700;">240g</p>
+          </div>
+          <div>
+            <p style="font-family:var(--font-ui);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">Gorduras</p>
+            <p style="font-family:var(--font-display);font-size:1.2rem;color:var(--danger);font-weight:700;">65g</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ============================================================
+        SEÇÃO 4: CHATBOT IA SIMULADO
+        Formato de janela de conversa com bolhas de mensagem
+        ============================================================ -->
+      <section id="section-chat" aria-labelledby="titulo-chat">
+
+        <header style="margin-bottom:16px;">
+          <h2 id="titulo-chat" style="font-family:var(--font-ui);font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);">
+            🤖 Chat com IA
+          </h2>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:3px;">
+            Pergunte sobre treino, dieta, TMB, IMC, hidratação ou descanso
+          </p>
+        </header>
+
+        <!-- Janela do chatbot -->
+        <div class="chat-window" role="log" aria-label="Janela de conversa com a IA" aria-live="polite">
+
+          <!-- Cabeçalho da janela de chat -->
+          <header class="chat-header">
+            <div class="chat-status-dot" aria-hidden="true"></div>
+            <div>
+              <p class="chat-title">FITMIND Assistant</p>
+              <p class="chat-subtitle">Online agora · Responde em segundos</p>
+            </div>
+          </header>
+
+          <!-- Área de mensagens — preenchida pelo JS ao enviar -->
+          <div class="chat-messages" id="chatMessages" aria-label="Histórico de mensagens">
+
+            <!-- Mensagem inicial do bot -->
+            <div class="message bot">
+              <p class="msg-sender">FITMIND AI</p>
+              <div class="msg-bubble">
+                👋 Olá! Sou o assistente FITMIND AI. Estou aqui para tirar suas dúvidas sobre treino, dieta, TMB, IMC, hidratação e recuperação. Como posso ajudar hoje?
+              </div>
+            </div>
+
+            <div class="message bot">
+              <p class="msg-sender">FITMIND AI</p>
+              <div class="msg-bubble">
+                💡 <strong>Dica:</strong> Tente perguntar sobre "treino", "dieta", "TMB", "IMC", "água" ou "descanso".
+              </div>
+            </div>
+
+          </div>
+          <!-- /chatMessages -->
+
+          <!-- Input de digitação -->
+          <div class="chat-input-area">
+            <input
+              type="text"
+              class="chat-input"
+              id="chatInput"
+              placeholder="Digite sua pergunta..."
+              aria-label="Campo de digitação de mensagem"
+              autocomplete="off"
+            />
+            <button
+              class="btn btn-primary"
+              style="padding:10px 16px;font-size:0.85rem;white-space:nowrap;"
+              onclick="enviarMensagem()"
+              aria-label="Enviar mensagem"
+            >
+              Enviar ↵
+            </button>
+          </div>
+
+        </div>
+        <!-- /chat-window -->
+
+      </section>
+      <!-- /section chat -->
+
+    </main>
+  </div>
+
+  <!-- Modal de protocolo IA (reutilizado do dashboard gestor) -->
+  <div id="modalProtocolo" style="display:none;" role="dialog" aria-modal="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

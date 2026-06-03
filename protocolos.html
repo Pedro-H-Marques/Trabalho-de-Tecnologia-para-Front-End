@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FITMIND AI — Protocolos de Treino</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+</head>
+<body>
+
+  <header class="mobile-header" role="banner">
+    <span class="mobile-logo">FITMIND AI</span>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar" role="navigation">
+      <div class="sidebar-logo">
+        <a href="index.html" style="text-decoration:none;">
+          <span class="logo-text">FITMIND AI</span>
+          <span class="logo-sub">Portal do Gestor</span>
+        </a>
+      </div>
+      <div class="sidebar-profile">
+        <div class="profile-avatar">PT</div>
+        <div class="profile-info">
+          <p class="profile-name">Personal Trainer</p>
+          <p class="profile-role">Administrador</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <p class="nav-section-label">Principal</p>
+        <a href="dashboard-gestor.html" class="nav-item"><span class="nav-icon">📊</span> Painel Geral</a>
+        <a href="alunos.html" class="nav-item"><span class="nav-icon">👥</span> Meus Alunos</a>
+        <a href="anamneses.html" class="nav-item"><span class="nav-icon">📋</span> Anamneses</a>
+        <a href="protocolos.html" class="nav-item active"><span class="nav-icon">🏋️</span> Protocolos</a>
+        <p class="nav-section-label">Financeiro</p>
+        <a href="faturamento.html" class="nav-item"><span class="nav-icon">💰</span> Faturamento</a>
+        <a href="assinaturas.html" class="nav-item"><span class="nav-icon">🔄</span> Assinaturas</a>
+        <p class="nav-section-label">Sistema</p>
+        <a href="sobre.html" class="nav-item"><span class="nav-icon">ℹ️</span> Sobre</a>
+      </nav>
+      <footer class="sidebar-footer">
+        <a href="index.html" class="btn-logout">← Sair</a>
+      </footer>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1 class="page-title">Protocolos de Treino</h1>
+        <p class="page-subtitle">Biblioteca completa de protocolos criados e gerados por IA</p>
+      </header>
+
+      <!-- KPIs -->
+      <div class="metrics-grid" style="margin-bottom:28px;">
+        <article class="metric-card"><p class="metric-label">Total de Protocolos</p><p class="metric-value">134</p><span class="metric-icon">🏋️</span></article>
+        <article class="metric-card"><p class="metric-label">Gerados por IA</p><p class="metric-value">38</p><span class="metric-icon">🤖</span></article>
+        <article class="metric-card"><p class="metric-label">Ativos Hoje</p><p class="metric-value">47</p><span class="metric-icon">✅</span></article>
+        <article class="metric-card"><p class="metric-label">Atualizações este mês</p><p class="metric-value">12</p><span class="metric-icon">🔄</span></article>
+      </div>
+
+      <!-- Tabs: Ativos / Biblioteca / Criar -->
+      <section class="card">
+        <div class="tabs-container">
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="tab-ativos">✅ Protocolos Ativos</button>
+            <button class="tab-btn" data-tab="tab-biblioteca">📚 Biblioteca</button>
+            <button class="tab-btn" data-tab="tab-criar">➕ Criar Protocolo</button>
+          </div>
+
+          <!-- TAB: Ativos -->
+          <div class="tab-pane active" id="tab-ativos">
+            <div style="display:grid;gap:16px;">
+
+              <!-- Protocolo 1 -->
+              <article class="card" style="padding:20px;border-color:var(--border-neon);">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <div class="profile-avatar" style="width:36px;height:36px;font-size:0.8rem;">MO</div>
+                    <div>
+                      <p style="font-weight:600;">Marcos Oliveira</p>
+                      <p style="font-size:0.75rem;color:var(--text-muted);">Criado em 28/05/2025 · Gerado por IA</p>
+                    </div>
+                  </div>
+                  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                    <span class="badge badge-success">Hipertrofia</span>
+                    <span class="badge badge-info">Intermediário</span>
+                  </div>
+                </div>
+
+                <!-- Tabs dos protocolos A/B/C dentro do card -->
+                <div class="tabs-container">
+                  <div class="tabs" style="margin-bottom:12px;">
+                    <button class="tab-btn active" data-tab="prot-mo-a">Protocolo A</button>
+                    <button class="tab-btn" data-tab="prot-mo-b">Protocolo B</button>
+                    <button class="tab-btn" data-tab="prot-mo-c">Protocolo C</button>
+                  </div>
+
+                  <div class="tab-pane active" id="prot-mo-a">
+                    <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:10px;">Peito e Tríceps — 2ª/5ª</p>
+                    <div class="table-wrapper"><table>
+                      <thead><tr><th>#</th><th>Exercício</th><th>Séries×Reps</th><th>Carga</th><th>Descanso</th></tr></thead>
+                      <tbody>
+                        <tr><td>A1</td><td>Supino Reto com Barra</td><td><span class="badge badge-info">4×10</span></td><td>70% 1RM</td><td>90s</td></tr>
+                        <tr><td>A2</td><td>Supino Inclinado Halteres</td><td><span class="badge badge-info">3×12</span></td><td>Moderada</td><td>60s</td></tr>
+                        <tr><td>A3</td><td>Crossover Cabo</td><td><span class="badge badge-info">3×15</span></td><td>Leve</td><td>60s</td></tr>
+                        <tr><td>A4</td><td>Tríceps Corda</td><td><span class="badge badge-info">3×15</span></td><td>Moderada</td><td>60s</td></tr>
+                        <tr><td>A5</td><td>Tríceps Francês</td><td><span class="badge badge-info">3×12</span></td><td>Leve-Mod</td><td>60s</td></tr>
+                      </tbody>
+                    </table></div>
+                  </div>
+
+                  <div class="tab-pane" id="prot-mo-b">
+                    <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:10px;">Costas e Bíceps — 3ª/6ª</p>
+                    <div class="table-wrapper"><table>
+                      <thead><tr><th>#</th><th>Exercício</th><th>Séries×Reps</th><th>Carga</th><th>Descanso</th></tr></thead>
+                      <tbody>
+                        <tr><td>B1</td><td>Puxada Frontal Aberta</td><td><span class="badge badge-info">4×10</span></td><td>Moderada</td><td>90s</td></tr>
+                        <tr><td>B2</td><td>Remada Curvada Barra</td><td><span class="badge badge-info">4×10</span></td><td>Moderada</td><td>90s</td></tr>
+                        <tr><td>B3</td><td>Remada Unilateral</td><td><span class="badge badge-info">3×12</span></td><td>Moderada</td><td>60s</td></tr>
+                        <tr><td>B4</td><td>Rosca Direta Barra</td><td><span class="badge badge-info">3×12</span></td><td>Moderada</td><td>60s</td></tr>
+                        <tr><td>B5</td><td>Rosca Alternada Halteres</td><td><span class="badge badge-info">3×10</span></td><td>Leve-Mod</td><td>60s</td></tr>
+                      </tbody>
+                    </table></div>
+                  </div>
+
+                  <div class="tab-pane" id="prot-mo-c">
+                    <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:10px;">Membros Inferiores — 4ª</p>
+                    <div class="table-wrapper"><table>
+                      <thead><tr><th>#</th><th>Exercício</th><th>Séries×Reps</th><th>Carga</th><th>Descanso</th></tr></thead>
+                      <tbody>
+                        <tr><td>C1</td><td>Agachamento Livre</td><td><span class="badge badge-info">4×10</span></td><td>75% 1RM</td><td>120s</td></tr>
+                        <tr><td>C2</td><td>Leg Press 45°</td><td><span class="badge badge-info">4×12</span></td><td>Alta</td><td>90s</td></tr>
+                        <tr><td>C3</td><td>Cadeira Extensora</td><td><span class="badge badge-info">3×15</span></td><td>Moderada</td><td>60s</td></tr>
+                        <tr><td>C4</td><td>Mesa Flexora</td><td><span class="badge badge-info">3×15</span></td><td>Moderada</td><td>60s</td></tr>
+                        <tr><td>C5</td><td>Panturrilha em Pé</td><td><span class="badge badge-info">4×20</span></td><td>Leve</td><td>45s</td></tr>
+                      </tbody>
+                    </table></div>
+                  </div>
+                </div>
+
+                <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+                  <button class="btn btn-outline" style="padding:7px 14px;font-size:0.78rem;" onclick="mostrarToast('✅ Protocolo enviado para Marcos Oliveira!')">📤 Enviar ao Aluno</button>
+                  <button class="btn btn-outline" style="padding:7px 14px;font-size:0.78rem;" onclick="mostrarToast('✏️ Modo de edição ativado')">✏️ Editar</button>
+                  <button class="btn btn-primary" style="padding:7px 14px;font-size:0.78rem;" onclick="gerarProtocolo(this,'Marcos Oliveira','hipertrofia','Intermediário')">🔁 Regen. com IA</button>
+                </div>
+              </article>
+
+              <!-- Protocolo 2 — card resumido -->
+              <article class="card" style="padding:18px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <div class="profile-avatar" style="width:36px;height:36px;font-size:0.8rem;">AS</div>
+                    <div>
+                      <p style="font-weight:600;">Ana Silva</p>
+                      <p style="font-size:0.75rem;color:var(--text-muted);">Protocolo de Emagrecimento · 3x/semana</p>
+                    </div>
+                  </div>
+                  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                    <span class="badge badge-warning">Pendente</span>
+                    <button class="btn btn-primary" style="padding:6px 14px;font-size:0.75rem;" onclick="gerarProtocolo(this,'Ana Silva','emagrecimento','Iniciante')">⚡ Gerar Protocolo</button>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- TAB: Biblioteca -->
+          <div class="tab-pane" id="tab-biblioteca">
+            <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:16px;">Templates de protocolos reutilizáveis</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;">
+              <div class="card" style="padding:16px;cursor:pointer;" onclick="mostrarToast('Template carregado!')">
+                <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:6px;">🏋️ Template</p>
+                <p style="font-weight:600;">Hipertrofia A/B/C</p>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Intermediário · 3-5x/semana</p>
+              </div>
+              <div class="card" style="padding:16px;cursor:pointer;" onclick="mostrarToast('Template carregado!')">
+                <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:6px;">🔥 Template</p>
+                <p style="font-weight:600;">Emagrecimento HIIT</p>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Iniciante/Interm · 3x/semana</p>
+              </div>
+              <div class="card" style="padding:16px;cursor:pointer;" onclick="mostrarToast('Template carregado!')">
+                <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:6px;">💪 Template</p>
+                <p style="font-weight:600;">Força — Powerlifting</p>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Avançado · 4x/semana</p>
+              </div>
+              <div class="card" style="padding:16px;cursor:pointer;" onclick="mostrarToast('Template carregado!')">
+                <p style="font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-neon);margin-bottom:6px;">🧘 Template</p>
+                <p style="font-weight:600;">Reabilitação Funcional</p>
+                <p style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Todos os níveis · 2-3x/semana</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: Criar -->
+          <div class="tab-pane" id="tab-criar">
+            <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:20px;">Crie um protocolo manualmente ou gere via IA a partir de uma anamnese</p>
+            <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px;">
+              <a href="anamneses.html" class="btn btn-primary">⚡ Gerar via IA (de Anamnese)</a>
+              <button class="btn btn-outline" onclick="mostrarToast('Editor manual em desenvolvimento')">✏️ Criar Manualmente</button>
+            </div>
+            <div class="insight-card">
+              <span class="insight-icon">💡</span>
+              <p class="insight-text">Para melhores resultados, acesse a página de <strong>Anamneses</strong>, visualize o formulário completo do aluno e use o botão <strong>"Gerar Protocolo com IA"</strong> — assim o protocolo é baseado nos dados reais do aluno.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modalProtocolo" style="display:none;"></div>
+  <script src="script.js"></script>
+</body>
+</html>
