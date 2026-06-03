@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FITMIND AI — Faturamento</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+</head>
+<body>
+
+  <header class="mobile-header" role="banner">
+    <span class="mobile-logo">FITMIND AI</span>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar" role="navigation">
+      <div class="sidebar-logo">
+        <a href="index.html" style="text-decoration:none;">
+          <span class="logo-text">FITMIND AI</span>
+          <span class="logo-sub">Portal do Gestor</span>
+        </a>
+      </div>
+      <div class="sidebar-profile">
+        <div class="profile-avatar">PT</div>
+        <div class="profile-info">
+          <p class="profile-name">Personal Trainer</p>
+          <p class="profile-role">Administrador</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <p class="nav-section-label">Principal</p>
+        <a href="dashboard-gestor.html" class="nav-item"><span class="nav-icon">📊</span> Painel Geral</a>
+        <a href="alunos.html" class="nav-item"><span class="nav-icon">👥</span> Meus Alunos</a>
+        <a href="anamneses.html" class="nav-item"><span class="nav-icon">📋</span> Anamneses</a>
+        <a href="protocolos.html" class="nav-item"><span class="nav-icon">🏋️</span> Protocolos</a>
+        <p class="nav-section-label">Financeiro</p>
+        <a href="faturamento.html" class="nav-item active"><span class="nav-icon">💰</span> Faturamento</a>
+        <a href="assinaturas.html" class="nav-item"><span class="nav-icon">🔄</span> Assinaturas</a>
+        <p class="nav-section-label">Sistema</p>
+        <a href="sobre.html" class="nav-item"><span class="nav-icon">ℹ️</span> Sobre</a>
+      </nav>
+      <footer class="sidebar-footer">
+        <a href="index.html" class="btn-logout">← Sair</a>
+      </footer>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1 class="page-title">Faturamento</h1>
+        <p class="page-subtitle">Dashboard financeiro, relatórios e insights de receita</p>
+      </header>
+
+      <!-- KPIs financeiros -->
+      <div class="metrics-grid" style="margin-bottom:28px;">
+        <article class="metric-card" style="animation-delay:0.05s">
+          <p class="metric-label">Receita Mensal</p>
+          <p class="metric-value">R$6.8k</p>
+          <p class="metric-desc">↑ 12% vs maio</p>
+          <span class="metric-icon">💰</span>
+        </article>
+        <article class="metric-card" style="animation-delay:0.1s">
+          <p class="metric-label">Receita Anual</p>
+          <p class="metric-value">R$72k</p>
+          <p class="metric-desc">Projeção 2025</p>
+          <span class="metric-icon">📈</span>
+        </article>
+        <article class="metric-card" style="animation-delay:0.15s">
+          <p class="metric-label">Ticket Médio</p>
+          <p class="metric-value">R$233</p>
+          <p class="metric-desc">Por aluno/mês</p>
+          <span class="metric-icon">🎯</span>
+        </article>
+        <article class="metric-card" style="animation-delay:0.2s">
+          <p class="metric-label">Inadimplência</p>
+          <p class="metric-value" style="color:var(--danger);">6.4%</p>
+          <p class="metric-desc">3 alunos atrasados</p>
+          <span class="metric-icon">⚠️</span>
+        </article>
+      </div>
+
+      <!-- Tabs: Dashboard / Relatório / Insights -->
+      <section class="card">
+        <div class="tabs-container">
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="tab-dashboard-fat">📊 Dashboard</button>
+            <button class="tab-btn" data-tab="tab-relatorio">📄 Relatório</button>
+            <button class="tab-btn" data-tab="tab-insights">💡 Insights</button>
+          </div>
+
+          <!-- TAB: Dashboard -->
+          <div class="tab-pane active" id="tab-dashboard-fat">
+
+            <!-- Gráfico de barras — receita mensal -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;">
+              <div>
+                <p style="font-family:var(--font-ui);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;">Receita Mensal 2025 (R$)</p>
+                <div class="bar-chart" aria-label="Gráfico de receita mensal">
+                  <div class="bar-col">
+                    <p class="bar-value">4.2k</p>
+                    <div class="bar-fill" data-pct="61" style="height:0%"></div>
+                    <p class="bar-label">Jan</p>
+                  </div>
+                  <div class="bar-col">
+                    <p class="bar-value">4.8k</p>
+                    <div class="bar-fill" data-pct="70" style="height:0%"></div>
+                    <p class="bar-label">Fev</p>
+                  </div>
+                  <div class="bar-col">
+                    <p class="bar-value">5.1k</p>
+                    <div class="bar-fill" data-pct="74" style="height:0%"></div>
+                    <p class="bar-label">Mar</p>
+                  </div>
+                  <div class="bar-col">
+                    <p class="bar-value">5.5k</p>
+                    <div class="bar-fill" data-pct="80" style="height:0%"></div>
+                    <p class="bar-label">Abr</p>
+                  </div>
+                  <div class="bar-col">
+                    <p class="bar-value">6.1k</p>
+                    <div class="bar-fill" data-pct="88" style="height:0%"></div>
+                    <p class="bar-label">Mai</p>
+                  </div>
+                  <div class="bar-col">
+                    <p class="bar-value">6.8k</p>
+                    <div class="bar-fill" data-pct="100" style="height:0%"></div>
+                    <p class="bar-label">Jun</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Distribuição por plano -->
+              <div>
+                <p style="font-family:var(--font-ui);font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;">Receita por Plano</p>
+                <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
+                  <div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:5px;">
+                      <span style="color:var(--text-secondary);">Premium (R$350/mês)</span>
+                      <span style="color:var(--accent-neon);font-weight:600;">R$4.200 · 62%</span>
+                    </div>
+                    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:62%"></div></div>
+                  </div>
+                  <div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:5px;">
+                      <span style="color:var(--text-secondary);">Intermediário (R$220/mês)</span>
+                      <span style="color:var(--info);font-weight:600;">R$1.980 · 29%</span>
+                    </div>
+                    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:29%;background:linear-gradient(90deg,#0080cc,var(--info))"></div></div>
+                  </div>
+                  <div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:5px;">
+                      <span style="color:var(--text-secondary);">Básico (R$120/mês)</span>
+                      <span style="color:var(--warning);font-weight:600;">R$600 · 9%</span>
+                    </div>
+                    <div class="progress-bar-wrap"><div class="progress-bar-fill warning" style="width:9%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- TAB: Relatório -->
+          <div class="tab-pane" id="tab-relatorio">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
+              <p style="font-size:0.82rem;color:var(--text-secondary);">Transações de Junho/2025</p>
+              <button class="btn btn-outline" style="padding:7px 14px;font-size:0.78rem;" onclick="mostrarToast('📄 Relatório exportado em PDF')">📥 Exportar PDF</button>
+            </div>
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr><th>Data</th><th>Aluno</th><th>Plano</th><th>Valor</th><th>Método</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>01/06</td><td>Marcos Oliveira</td><td>Premium</td><td style="color:var(--accent-neon);font-weight:600;">R$350,00</td><td>PIX</td><td><span class="badge badge-success">Pago</span></td></tr>
+                  <tr><td>02/06</td><td>Ana Silva</td><td>Intermediário</td><td style="color:var(--accent-neon);font-weight:600;">R$220,00</td><td>Cartão</td><td><span class="badge badge-success">Pago</span></td></tr>
+                  <tr><td>03/06</td><td>Juliana Lima</td><td>Básico</td><td style="color:var(--accent-neon);font-weight:600;">R$120,00</td><td>PIX</td><td><span class="badge badge-success">Pago</span></td></tr>
+                  <tr><td>01/06</td><td>Carlos Ferreira</td><td>Premium</td><td style="color:var(--danger);font-weight:600;">R$350,00</td><td>—</td><td><span class="badge badge-danger">Atrasado</span></td></tr>
+                  <tr><td>05/06</td><td>Ricardo Pinto</td><td>Premium</td><td style="color:var(--accent-neon);font-weight:600;">R$350,00</td><td>Débito</td><td><span class="badge badge-success">Pago</span></td></tr>
+                  <tr><td>08/06</td><td>Fernanda Costa</td><td>Intermediário</td><td style="color:var(--warning);font-weight:600;">R$220,00</td><td>—</td><td><span class="badge badge-info">Pendente</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="margin-top:14px;padding:12px 16px;background:rgba(57,255,20,0.04);border:1px solid var(--border-neon);border-radius:var(--radius-sm);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+              <span style="font-family:var(--font-ui);font-size:0.8rem;color:var(--text-secondary);">Total confirmado este mês:</span>
+              <span style="font-family:var(--font-display);font-size:1.1rem;color:var(--accent-neon);font-weight:700;">R$ 6.110,00</span>
+            </div>
+          </div>
+
+          <!-- TAB: Insights -->
+          <div class="tab-pane" id="tab-insights">
+            <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:16px;">Análises automáticas do FITMIND AI sobre seu negócio</p>
+
+            <div class="insight-card">
+              <span class="insight-icon">📈</span>
+              <p class="insight-text"><strong>Crescimento consistente:</strong> Sua receita cresceu 62% nos últimos 6 meses (Jan–Jun/2025). O ritmo atual projeta <strong>R$96.000/ano</strong>.</p>
+            </div>
+
+            <div class="insight-card">
+              <span class="insight-icon">💡</span>
+              <p class="insight-text"><strong>Oportunidade de upsell:</strong> 5 alunos no plano Básico (R$120) poderiam migrar para o Intermediário (R$220). Isso geraria <strong>+R$500/mês</strong> de receita adicional.</p>
+            </div>
+
+            <div class="insight-card">
+              <span class="insight-icon">⚠️</span>
+              <p class="insight-text"><strong>Atenção: inadimplência.</strong> Carlos Ferreira está com pagamento atrasado há 4 dias (R$350). Envie um lembrete amigável pela aba <a href="alunos.html" style="color:var(--accent-neon);">Meus Alunos</a>.</p>
+            </div>
+
+            <div class="insight-card">
+              <span class="insight-icon">🎯</span>
+              <p class="insight-text"><strong>Meta do mês:</strong> Para atingir R$7.500 em julho, você precisa de <strong>3 novos alunos no plano Intermediário</strong> ou 1 no Premium + 2 upgrades do plano Básico.</p>
+            </div>
+
+            <div class="insight-card">
+              <span class="insight-icon">🏆</span>
+              <p class="insight-text"><strong>Plano Premium domina:</strong> 62% da receita vem de 12 alunos Premium. Foque em converter alunos Intermediários para Premium oferecendo a <strong>consultoria online</strong> como diferencial.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modalProtocolo" style="display:none;"></div>
+  <script src="script.js"></script>
+</body>
+</html>

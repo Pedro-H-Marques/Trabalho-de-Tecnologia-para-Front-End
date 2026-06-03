@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FITMIND AI — Meus Alunos</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+</head>
+<body>
+
+  <header class="mobile-header" role="banner">
+    <span class="mobile-logo">FITMIND AI</span>
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="app-layout">
+
+    <aside class="sidebar" id="sidebar" role="navigation">
+      <div class="sidebar-logo">
+        <a href="index.html" style="text-decoration:none;">
+          <span class="logo-text">FITMIND AI</span>
+          <span class="logo-sub">Portal do Gestor</span>
+        </a>
+      </div>
+      <div class="sidebar-profile">
+        <div class="profile-avatar">PT</div>
+        <div class="profile-info">
+          <p class="profile-name">Personal Trainer</p>
+          <p class="profile-role">Administrador</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <p class="nav-section-label">Principal</p>
+        <a href="dashboard-gestor.html" class="nav-item"><span class="nav-icon">📊</span> Painel Geral</a>
+        <a href="alunos.html" class="nav-item active"><span class="nav-icon">👥</span> Meus Alunos</a>
+        <a href="anamneses.html" class="nav-item"><span class="nav-icon">📋</span> Anamneses</a>
+        <a href="protocolos.html" class="nav-item"><span class="nav-icon">🏋️</span> Protocolos</a>
+        <p class="nav-section-label">Financeiro</p>
+        <a href="faturamento.html" class="nav-item"><span class="nav-icon">💰</span> Faturamento</a>
+        <a href="assinaturas.html" class="nav-item"><span class="nav-icon">🔄</span> Assinaturas</a>
+        <p class="nav-section-label">Sistema</p>
+        <a href="sobre.html" class="nav-item"><span class="nav-icon">ℹ️</span> Sobre</a>
+      </nav>
+      <footer class="sidebar-footer">
+        <a href="index.html" class="btn-logout">← Sair</a>
+      </footer>
+    </aside>
+
+    <main class="main-content" role="main">
+      <header class="page-header">
+        <h1 class="page-title">Meus Alunos</h1>
+        <p class="page-subtitle">Acompanhe evolução, pagamentos e assiduidade de cada aluno</p>
+      </header>
+
+      <!-- KPIs rápidos -->
+      <div class="metrics-grid" style="margin-bottom:28px;">
+        <article class="metric-card" style="animation-delay:0.05s">
+          <p class="metric-label">Total Ativos</p>
+          <p class="metric-value">47</p>
+          <p class="metric-desc">+3 este mês</p>
+          <span class="metric-icon">👥</span>
+        </article>
+        <article class="metric-card" style="animation-delay:0.1s">
+          <p class="metric-label">Adimplentes</p>
+          <p class="metric-value">44</p>
+          <p class="metric-desc">93,6% em dia</p>
+          <span class="metric-icon">✅</span>
+        </article>
+        <article class="metric-card" style="animation-delay:0.15s">
+          <p class="metric-label">Inadimplentes</p>
+          <p class="metric-value" style="color:var(--danger);">3</p>
+          <p class="metric-desc">Pagamento atrasado</p>
+          <span class="metric-icon">⚠️</span>
+        </article>
+        <article class="metric-card" style="animation-delay:0.2s">
+          <p class="metric-label">Assiduidade Média</p>
+          <p class="metric-value">78%</p>
+          <p class="metric-desc">Últimos 30 dias</p>
+          <span class="metric-icon">📅</span>
+        </article>
+      </div>
+
+      <!-- Tabs: Lista / Evolução / Pagamentos / Assiduidade -->
+      <section class="card">
+        <div class="tabs-container">
+          <div class="tabs" role="tablist">
+            <button class="tab-btn active" data-tab="tab-lista" role="tab">👥 Lista de Alunos</button>
+            <button class="tab-btn" data-tab="tab-evolucao" role="tab">📈 Evolução</button>
+            <button class="tab-btn" data-tab="tab-pagamentos" role="tab">💳 Pagamentos</button>
+            <button class="tab-btn" data-tab="tab-assiduidade" role="tab">📅 Assiduidade</button>
+          </div>
+
+          <!-- TAB: Lista de Alunos -->
+          <div class="tab-pane active" id="tab-lista" role="tabpanel">
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Aluno</th><th>Plano</th><th>Objetivo</th><th>Nível</th><th>Pagamento</th><th>Assiduidade</th><th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style="display:flex;align-items:center;gap:10px;">
+                        <div class="profile-avatar" style="width:34px;height:34px;font-size:0.75rem;">MO</div>
+                        <div><p style="font-weight:500;">Marcos Oliveira</p><p style="font-size:0.72rem;color:var(--text-muted);">marcos@email.com</p></div>
+                      </div>
+                    </td>
+                    <td><span class="badge badge-success">Premium</span></td>
+                    <td>Hipertrofia</td><td>Intermediário</td>
+                    <td><span class="badge badge-success">Em dia</span></td>
+                    <td>
+                      <div style="min-width:100px;">
+                        <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;"><span>Assiduidade</span><span>85%</span></div>
+                        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:85%"></div></div>
+                      </div>
+                    </td>
+                    <td>
+                      <button class="btn btn-outline" style="padding:6px 12px;font-size:0.75rem;" onclick="abrirFichaAluno('Marcos Oliveira','MO','Hipertrofia','Intermediário','Premium','85','Em dia','80kg','178cm','24.1','1.8','2.2')">Ver Ficha</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display:flex;align-items:center;gap:10px;">
+                        <div class="profile-avatar" style="width:34px;height:34px;font-size:0.75rem;">AS</div>
+                        <div><p style="font-weight:500;">Ana Silva</p><p style="font-size:0.72rem;color:var(--text-muted);">ana@email.com</p></div>
+                      </div>
+                    </td>
+                    <td><span class="badge badge-info">Intermediário</span></td>
+                    <td>Emagrecimento</td><td>Iniciante</td>
+                    <td><span class="badge badge-success">Em dia</span></td>
+                    <td>
+                      <div style="min-width:100px;">
+                        <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;"><span>Assiduidade</span><span>72%</span></div>
+                        <div class="progress-bar-wrap"><div class="progress-bar-fill warning" style="width:72%"></div></div>
+                      </div>
+                    </td>
+                    <td>
+                      <button class="btn btn-outline" style="padding:6px 12px;font-size:0.75rem;" onclick="abrirFichaAluno('Ana Silva','AS','Emagrecimento','Iniciante','Intermediário','72','Em dia','65kg','162cm','24.8','1.6','2.0')">Ver Ficha</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display:flex;align-items:center;gap:10px;">
+                        <div class="profile-avatar" style="width:34px;height:34px;font-size:0.75rem;">CF</div>
+                        <div><p style="font-weight:500;">Carlos Ferreira</p><p style="font-size:0.72rem;color:var(--text-muted);">carlos@email.com</p></div>
+                      </div>
+                    </td>
+                    <td><span class="badge badge-success">Premium</span></td>
+                    <td>Condicionamento</td><td>Avançado</td>
+                    <td><span class="badge badge-danger">Atrasado</span></td>
+                    <td>
+                      <div style="min-width:100px;">
+                        <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;"><span>Assiduidade</span><span>91%</span></div>
+                        <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:91%"></div></div>
+                      </div>
+                    </td>
+                    <td>
+                      <button class="btn btn-outline" style="padding:6px 12px;font-size:0.75rem;" onclick="abrirFichaAluno('Carlos Ferreira','CF','Condicionamento','Avançado','Premium','91','Atrasado','90kg','182cm','27.2','2.0','2.5')">Ver Ficha</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display:flex;align-items:center;gap:10px;">
+                        <div class="profile-avatar" style="width:34px;height:34px;font-size:0.75rem;">JL</div>
+                        <div><p style="font-weight:500;">Juliana Lima</p><p style="font-size:0.72rem;color:var(--text-muted);">juh@email.com</p></div>
+                      </div>
+                    </td>
+                    <td><span class="badge badge-warning">Básico</span></td>
+                    <td>Hipertrofia</td><td>Intermediário</td>
+                    <td><span class="badge badge-success">Em dia</span></td>
+                    <td>
+                      <div style="min-width:100px;">
+                        <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;"><span>Assiduidade</span><span>68%</span></div>
+                        <div class="progress-bar-wrap"><div class="progress-bar-fill warning" style="width:68%"></div></div>
+                      </div>
+                    </td>
+                    <td>
+                      <button class="btn btn-outline" style="padding:6px 12px;font-size:0.75rem;" onclick="abrirFichaAluno('Juliana Lima','JL','Hipertrofia','Intermediário','Básico','68','Em dia','58kg','165cm','21.3','1.5','1.9')">Ver Ficha</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB: Evolução -->
+          <div class="tab-pane" id="tab-evolucao" role="tabpanel">
+            <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:20px;">Evolução das métricas dos alunos nos últimos 3 meses</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+
+              <div class="card" style="padding:18px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+                  <div class="profile-avatar" style="width:34px;height:34px;font-size:0.75rem;">MO</div>
+                  <div><p style="font-weight:500;font-size:0.9rem;">Marcos Oliveira</p><p style="font-size:0.72rem;color:var(--text-muted);">Hipertrofia</p></div>
+                </div>
+                <div class="info-row"><span class="info-label">Peso Inicial</span><span class="info-value">78 kg</span></div>
+                <div class="info-row"><span class="info-label">Peso Atual</span><span class="info-value" style="color:var(--accent-neon);">80 kg (+2kg)</span></div>
+                <div class="info-row"><span class="info-label">% Gordura</span><span class="info-value">18% → 15.5% ✓</span></div>
+                <div class="info-row"><span class="info-label">Massa Magra</span><span class="info-value">+4.5 kg</span></div>
+                <div style="margin-top:12px;">
+                  <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;"><span>Progresso do objetivo</span><span>70%</span></div>
+                  <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:70%"></div></div>
+                </div>
+              </div>
+
+              <div class="card" style="padding:18px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+                  <div class="profile-avatar" style="width:34px;height:34px;font-size:0.75rem;">AS</div>
+                  <div><p style="font-weight:500;font-size:0.9rem;">Ana Silva</p><p style="font-size:0.72rem;color:var(--text-muted);">Emagrecimento</p></div>
+                </div>
+                <div class="info-row"><span class="info-label">Peso Inicial</span><span class="info-value">72 kg</span></div>
+                <div class="info-row"><span class="info-label">Peso Atual</span><span class="info-value" style="color:var(--accent-neon);">65 kg (−7kg ✓)</span></div>
+                <div class="info-row"><span class="info-label">% Gordura</span><span class="info-value">28% → 22%</span></div>
+                <div class="info-row"><span class="info-label">Cintura</span><span class="info-value">82cm → 76cm</span></div>
+                <div style="margin-top:12px;">
+                  <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;"><span>Progresso do objetivo</span><span>85%</span></div>
+                  <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:85%"></div></div>
+                </div>
+              </div>
+
+              <div class="card" style="padding:18px;">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+                  <div class="profile-avatar" style="width:34px;height:34px;font-size:0.75rem;">CF</div>
+                  <div><p style="font-weight:500;font-size:0.9rem;">Carlos Ferreira</p><p style="font-size:0.72rem;color:var(--text-muted);">Condicionamento</p></div>
+                </div>
+                <div class="info-row"><span class="info-label">VO2 Máx Estimado</span><span class="info-value">42 → 48 ml/kg/min</span></div>
+                <div class="info-row"><span class="info-label">Tempo 5km</span><span class="info-value">28min → 23min</span></div>
+                <div class="info-row"><span class="info-label">FC Repouso</span><span class="info-value">72 → 62 bpm</span></div>
+                <div class="info-row"><span class="info-label">Flexibilidade</span><span class="info-value">+8cm no banco</span></div>
+                <div style="margin-top:12px;">
+                  <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text-muted);margin-bottom:4px;"><span>Progresso do objetivo</span><span>60%</span></div>
+                  <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:60%"></div></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- TAB: Pagamentos -->
+          <div class="tab-pane" id="tab-pagamentos" role="tabpanel">
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr><th>Aluno</th><th>Plano</th><th>Valor</th><th>Vencimento</th><th>Status</th><th>Ação</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Marcos Oliveira</td><td>Premium</td><td>R$ 350,00</td><td>05/06/2025</td>
+                    <td><span class="badge badge-success">Pago</span></td>
+                    <td><button class="btn btn-outline" style="padding:5px 10px;font-size:0.72rem;" onclick="mostrarToast('Recibo enviado para marcos@email.com')">Enviar Recibo</button></td>
+                  </tr>
+                  <tr>
+                    <td>Ana Silva</td><td>Intermediário</td><td>R$ 220,00</td><td>10/06/2025</td>
+                    <td><span class="badge badge-success">Pago</span></td>
+                    <td><button class="btn btn-outline" style="padding:5px 10px;font-size:0.72rem;" onclick="mostrarToast('Recibo enviado para ana@email.com')">Enviar Recibo</button></td>
+                  </tr>
+                  <tr>
+                    <td>Carlos Ferreira</td><td>Premium</td><td>R$ 350,00</td><td>01/06/2025</td>
+                    <td><span class="badge badge-danger">Atrasado 4 dias</span></td>
+                    <td><button class="btn btn-danger" style="padding:5px 10px;font-size:0.72rem;" onclick="mostrarToast('Cobrança enviada para carlos@email.com')">Cobrar</button></td>
+                  </tr>
+                  <tr>
+                    <td>Juliana Lima</td><td>Básico</td><td>R$ 120,00</td><td>15/06/2025</td>
+                    <td><span class="badge badge-info">Pendente</span></td>
+                    <td><button class="btn btn-outline" style="padding:5px 10px;font-size:0.72rem;" onclick="mostrarToast('Lembrete enviado para juh@email.com')">Lembrete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB: Assiduidade -->
+          <div class="tab-pane" id="tab-assiduidade" role="tabpanel">
+            <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:20px;">Frequência de treinos nos últimos 28 dias. <span style="color:var(--accent-neon);">■</span> Treinou &nbsp; <span style="color:var(--danger);">■</span> Faltou &nbsp; <span style="color:var(--text-muted);">■</span> Sem treino agendado</p>
+
+            <div style="display:grid;gap:20px;">
+              <!-- Aluno 1 -->
+              <div class="card" style="padding:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <div class="profile-avatar" style="width:32px;height:32px;font-size:0.72rem;">MO</div>
+                    <span style="font-weight:500;">Marcos Oliveira</span>
+                  </div>
+                  <span class="badge badge-success">85% de presença</span>
+                </div>
+                <div class="assiduidade-grid">
+                  <!-- 28 dias — F=fez, X=faltou, espaço=não agendado -->
+                  <div class="dia-treino">D</div><div class="dia-treino feito">S</div><div class="dia-treino">T</div><div class="dia-treino feito">Q</div><div class="dia-treino">Q</div><div class="dia-treino feito">S</div><div class="dia-treino">S</div>
+                  <div class="dia-treino">D</div><div class="dia-treino feito">S</div><div class="dia-treino">T</div><div class="dia-treino feito">Q</div><div class="dia-treino">Q</div><div class="dia-treino faltou">S</div><div class="dia-treino">S</div>
+                  <div class="dia-treino">D</div><div class="dia-treino feito">S</div><div class="dia-treino">T</div><div class="dia-treino feito">Q</div><div class="dia-treino">Q</div><div class="dia-treino feito">S</div><div class="dia-treino">S</div>
+                  <div class="dia-treino">D</div><div class="dia-treino feito">S</div><div class="dia-treino">T</div><div class="dia-treino feito">Q</div><div class="dia-treino">Q</div><div class="dia-treino feito">S</div><div class="dia-treino">S</div>
+                </div>
+              </div>
+
+              <!-- Aluno 2 -->
+              <div class="card" style="padding:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <div class="profile-avatar" style="width:32px;height:32px;font-size:0.72rem;">AS</div>
+                    <span style="font-weight:500;">Ana Silva</span>
+                  </div>
+                  <span class="badge badge-warning">72% de presença</span>
+                </div>
+                <div class="assiduidade-grid">
+                  <div class="dia-treino">D</div><div class="dia-treino feito">S</div><div class="dia-treino">T</div><div class="dia-treino faltou">Q</div><div class="dia-treino">Q</div><div class="dia-treino feito">S</div><div class="dia-treino">S</div>
+                  <div class="dia-treino">D</div><div class="dia-treino faltou">S</div><div class="dia-treino">T</div><div class="dia-treino feito">Q</div><div class="dia-treino">Q</div><div class="dia-treino feito">S</div><div class="dia-treino">S</div>
+                  <div class="dia-treino">D</div><div class="dia-treino feito">S</div><div class="dia-treino">T</div><div class="dia-treino faltou">Q</div><div class="dia-treino">Q</div><div class="dia-treino feito">S</div><div class="dia-treino">S</div>
+                  <div class="dia-treino">D</div><div class="dia-treino feito">S</div><div class="dia-treino">T</div><div class="dia-treino feito">Q</div><div class="dia-treino">Q</div><div class="dia-treino faltou">S</div><div class="dia-treino">S</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /tabs-container -->
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal de ficha do aluno -->
+  <div id="modalAluno" style="display:none;"></div>
+  <div id="modalProtocolo" style="display:none;"></div>
+
+  <script src="script.js"></script>
+  <script>
+    // Abre modal com dados completos do aluno incluindo TMB calculada
+    function abrirFichaAluno(nome, iniciais, objetivo, nivel, plano, assid, pagamento, peso, altura, imc, agua, proteina) {
+      const pesoNum   = parseFloat(peso);
+      const alturaNum = parseFloat(altura);
+      // Cálculo de TMB (Mifflin-St Jeor — usando masculino como padrão demonstrativo)
+      const tmb  = ((10 * pesoNum) + (6.25 * alturaNum) - (5 * 28) + 5).toFixed(0);
+      const tdee = (tmb * 1.55).toFixed(0);
+      const aguaL = (pesoNum * 0.035).toFixed(1);
+
+      const modal = document.getElementById('modalAluno');
+      modal.innerHTML = `
+        <div class="modal-overlay" onclick="document.getElementById('modalAluno').style.display='none'">
+          <div class="modal-box" onclick="event.stopPropagation()" style="position:relative;max-width:560px;">
+            <button onclick="document.getElementById('modalAluno').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;color:var(--text-muted);font-size:1.4rem;cursor:pointer;">×</button>
+
+            <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+              <div class="aluno-avatar-lg">${iniciais}</div>
+              <div>
+                <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-primary);">${nome}</h3>
+                <p style="font-size:0.8rem;color:var(--accent-neon);">${plano} · ${objetivo}</p>
+              </div>
+            </div>
+
+            <div class="protocol-block">
+              <h4>📊 Dados Físicos</h4>
+              <div class="info-row"><span class="info-label">Peso</span><span class="info-value">${peso}</span></div>
+              <div class="info-row"><span class="info-label">Altura</span><span class="info-value">${altura}</span></div>
+              <div class="info-row"><span class="info-label">IMC</span><span class="info-value">${imc}</span></div>
+              <div class="info-row"><span class="info-label">Nível</span><span class="info-value">${nivel}</span></div>
+            </div>
+
+            <div class="protocol-block">
+              <h4>🔥 TMB e Metabolismo</h4>
+              <div class="info-row"><span class="info-label">TMB (repouso)</span><span class="info-value" style="color:var(--accent-neon);">${tmb} kcal/dia</span></div>
+              <div class="info-row"><span class="info-label">TDEE (c/ atividade)</span><span class="info-value" style="color:var(--accent-neon);">${tdee} kcal/dia</span></div>
+              <div class="info-row"><span class="info-label">💧 Água recomendada</span><span class="info-value" style="color:var(--info);">${aguaL} litros/dia</span></div>
+              <div class="info-row"><span class="info-label">🥩 Proteína mín.</span><span class="info-value">${proteina}g/kg · ${(pesoNum * parseFloat(proteina)).toFixed(0)}g/dia</span></div>
+            </div>
+
+            <div class="protocol-block">
+              <h4>📅 Status</h4>
+              <div class="info-row"><span class="info-label">Assiduidade</span><span class="info-value">${assid}%</span></div>
+              <div class="info-row"><span class="info-label">Pagamento</span><span class="info-value">${pagamento}</span></div>
+            </div>
+
+            <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="anamneses.html" class="btn btn-primary" style="font-size:0.82rem;">📋 Ver Anamnese</a>
+              <a href="protocolos.html" class="btn btn-outline" style="font-size:0.82rem;">🏋️ Ver Protocolo</a>
+            </div>
+          </div>
+        </div>`;
+      modal.style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
