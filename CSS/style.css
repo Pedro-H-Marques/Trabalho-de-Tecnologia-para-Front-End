@@ -959,6 +959,7 @@ select.form-control option {
   margin-top: 32px;
   font-size: 0.78rem;
   color: var(--text-muted);
+  padding-bottom: 24px; 
 }
 /* ============================================================
    MODAL / OVERLAY DE RESULTADO IA
