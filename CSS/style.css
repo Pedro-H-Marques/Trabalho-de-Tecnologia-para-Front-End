@@ -880,6 +880,7 @@ select.form-control option {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  align-items: stretch; 
 }
 
 .portal-card {
@@ -896,7 +897,8 @@ select.form-control option {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-   min-height: 220px;
+  min-height: 220px;
+  height: 100%; 
 }
 
 /* Efeito de fundo ao hover no portal card */
@@ -956,6 +958,9 @@ select.form-control option {
   margin-top: 36px;
   font-size: 0.78rem;
   color: var(--text-muted);
+  position: relative; /* troca fixed ou absolute por relative */
+  margin-top: 32px;
+
 }
 
 /* ============================================================
@@ -1226,6 +1231,7 @@ select.form-control option {
   .form-grid-2, .form-grid-3 { grid-template-columns: 1fr; }
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
   .page-title { font-size: 1.25rem; }
+   
 }
 
 @media (max-width: 520px) {
