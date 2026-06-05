@@ -954,15 +954,12 @@ select.form-control option {
 }
 
 .login-footer {
+  position: relative;
   text-align: center;
-  margin-top: 36px;
+  margin-top: 32px;
   font-size: 0.78rem;
   color: var(--text-muted);
-  position: relative; /* troca fixed ou absolute por relative */
-  margin-top: 32px;
-
 }
-
 /* ============================================================
    MODAL / OVERLAY DE RESULTADO IA
    ============================================================ */
